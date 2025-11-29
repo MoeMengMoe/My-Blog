@@ -1,0 +1,63 @@
+/* Self-hosted fonts declarations */
+
+@font-face {
+  font-family: 'LXGWWenKai';
+  src: url('/fonts/lxgw-wenkai/LXGWWenKaiLite-Regular.woff2') format('woff2'),
+       url('/fonts/lxgw-wenkai/LXGWWenKaiLite-Regular.ttf') format('truetype');
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  src: url('/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  src: url('/fonts/jetbrains-mono/JetBrainsMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* KaTeX fonts (partial set, map to self-hosted files) */
+@font-face { font-family: 'KaTeX_Main'; src: url('/fonts/katex/KaTeX_Main-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'KaTeX_Main'; src: url('/fonts/katex/KaTeX_Main-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'KaTeX_Math'; src: url('/fonts/katex/KaTeX_Math-Italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'KaTeX_SansSerif'; src: url('/fonts/katex/KaTeX_SansSerif-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'KaTeX_AMS'; src: url('/fonts/katex/KaTeX_AMS-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'KaTeX_Typewriter'; src: url('/fonts/katex/KaTeX_Typewriter-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+
+/* Apply global fonts */
+:root {
+  --font-sans: 'LXGWWenKai', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Liberation Mono', monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+code, pre, .expressive-code, .custom-md code, .custom-md pre, .code {
+  font-family: var(--font-mono);
+}
+
+/* Make bold more prominent */
+strong, b {
+  font-weight: 800;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 800;
+}
+
+/* Ensure KaTeX uses self-hosted fonts */
+.katex, .katex * {
+  font-family: KaTeX_Main, KaTeX_SansSerif, KaTeX_AMS, KaTeX_Typewriter, serif;
+}
+
+/* Ensure profile avatar container uses rounded rectangle by default; avatar image cropping handled by components */
+

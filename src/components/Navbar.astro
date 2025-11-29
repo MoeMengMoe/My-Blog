@@ -1,0 +1,221 @@
+---
+import { Icon } from "astro-icon/components";
+import { navBarConfig, profileConfig, siteConfig } from "../config";
+import { LinkPresets } from "../constants/link-presets";
+import { LinkPreset, type NavBarLink } from "../types/config";
+import { url } from "../utils/url-utils";
+import LightDarkSwitch from "./LightDarkSwitch.svelte";
+import Search from "./Search.svelte";
+import DisplaySettings from "./widget/DisplaySettings.svelte";
+import NavMenuPanel from "./widget/NavMenuPanel.astro";
+import ImageWrapper from "./misc/ImageWrapper.astro";
+
+const className = Astro.props.class;
+
+let links: NavBarLink[] = navBarConfig.links.map(
+    (item: NavBarLink | LinkPreset): NavBarLink => {
+        if (typeof item === "number") {
+            return LinkPresets[item];
+        }
+        return item;
+    },
+);
+const ownerGitHubLink =
+    profileConfig.links.find(item => item.name.toLowerCase() === "github")?.url ??
+        "https://github.com/MoeMengMoe";
+const ownerAvatar = profileConfig.avatar || "/avatar/avatar.jpg";
+---
+<div id="navbar" class="z-50 onload-animation">
+    <div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"></div>
+    <div class:list={[
+        className,
+        "card-base !overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4"]}>
+        <a href={url('/')} class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95" aria-label="Home">
+            <div class="flex flex-row text-[var(--primary)] items-center text-md" data-default-title={siteConfig.title}>
+                <div class="w-7 h-7 mr-2 rounded-full overflow-hidden border border-black/5 bg-white/30 site-tag-avatar">
+                    <ImageWrapper src="/avatar/tag.jpg" alt="site tag avatar" class="w-full h-full object-cover rounded-full" />
+                </div>
+                <span id="site-title-text" class="transition">{siteConfig.title}</span>
+                <span id="site-greeting" class="ml-3 text-sm font-medium text-[var(--primary)] opacity-0 transition-opacity"></span>
+            </div>
+        </a>
+        <div class="hidden md:flex">
+            {links.map((l) => {
+                return <a aria-label={l.name} href={l.external ? l.url : url(l.url)} target={l.external ? "_blank" : null}
+                          class="btn-plain scale-animation rounded-lg h-11 font-bold px-5 active:scale-95"
+                >
+                    <div class="flex items-center">
+                        {l.name}
+                        {l.external && <Icon name="fa6-solid:arrow-up-right-from-square" class="text-[0.875rem] transition -translate-y-[1px] ml-1 text-black/[0.2] dark:text-white/[0.2]"></Icon>}
+                    </div>
+                </a>;
+            })}
+        </div>
+        <div class="flex items-center gap-2">
+            <Search client:only="svelte"></Search>
+            <a
+                aria-label="Open MoeMengMoe's GitHub"
+                href={ownerGitHubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-plain scale-animation rounded-full w-12 h-12 p-0 border border-transparent hover:border-[var(--primary)] transition"
+            >
+                <div class="w-11 h-11 rounded-full overflow-hidden border border-black/10 dark:border-white/20">
+                    <ImageWrapper src={ownerAvatar} alt="MoeMengMoe avatar" class="w-full h-full rounded-full" />
+                </div>
+            </a>
+            {!siteConfig.themeColor.fixed && (
+                    <button aria-label="Display Settings" class="btn-plain scale-animation rounded-lg h-11 w-11 active:scale-90" id="display-settings-switch">
+                        <Icon name="material-symbols:palette-outline" class="text-[1.25rem]"></Icon>
+                    </button>
+            )}
+            <LightDarkSwitch client:only="svelte"></LightDarkSwitch>
+            <button aria-label="Menu" name="Nav Menu" class="btn-plain scale-animation rounded-lg w-11 h-11 active:scale-90 md:!hidden" id="nav-menu-switch">
+                <Icon name="material-symbols:menu-rounded" class="text-[1.25rem]"></Icon>
+            </button>
+        </div>
+        <NavMenuPanel links={links}></NavMenuPanel>
+        <DisplaySettings client:only="svelte"></DisplaySettings>
+    </div>
+</div>
+
+<script>
+function switchTheme() {
+    if (localStorage.theme === 'dark') {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+    } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+    }
+}
+
+function loadButtonScript() {
+    let switchBtn = document.getElementById("scheme-switch");
+    if (switchBtn) {
+        switchBtn.onclick = function () {
+            switchTheme()
+        };
+    }
+
+    let settingBtn = document.getElementById("display-settings-switch");
+    if (settingBtn) {
+        settingBtn.onclick = function () {
+            let settingPanel = document.getElementById("display-setting");
+            if (settingPanel) {
+                settingPanel.classList.toggle("float-panel-closed");
+            }
+        };
+    }
+
+    let menuBtn = document.getElementById("nav-menu-switch");
+    if (menuBtn) {
+        menuBtn.onclick = function () {
+            let menuPanel = document.getElementById("nav-menu-panel");
+            if (menuPanel) {
+                menuPanel.classList.toggle("float-panel-closed");
+            }
+        };
+    }
+}
+
+loadButtonScript();
+
+// Greeting behavior: focus/blur and visibility handling
+document.addEventListener('DOMContentLoaded', () => {
+    const titleSpan = document.getElementById('site-title-text');
+    const greetSpan = document.getElementById('site-greeting');
+    const parent = document.querySelector('[data-default-title]');
+    const defaultTitle = (parent && parent.dataset && parent.dataset.defaultTitle) ? parent.dataset.defaultTitle : (titleSpan ? titleSpan.textContent : '');
+    if (!titleSpan || !greetSpan) return;
+    let timer = null;
+
+    function renderGreeting(emo, text) {
+        greetSpan.innerHTML = `<span class="emo">${emo}</span><span class="sep" aria-hidden="true"></span><span class="msg">${text}</span>`;
+        greetSpan.style.opacity = '1';
+    }
+    function clearGreeting() {
+        greetSpan.style.opacity = '0';
+        greetSpan.innerHTML = '';
+    }
+    function showWelcome() {
+        renderGreeting('(^_^)','Welcome Back！');
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => {
+            clearGreeting();
+            if (titleSpan) titleSpan.textContent = defaultTitle;
+            timer = null;
+        }, 3000);
+    }
+    function showComeBack() {
+        if (timer) { clearTimeout(timer); timer = null; }
+        renderGreeting('(>_<)', 'Come Back!');
+    }
+    function handleVisibility() {
+        if (document.visibilityState === 'visible') {
+            showWelcome();
+        } else {
+            showComeBack();
+        }
+    }
+    window.addEventListener('focus', showWelcome);
+    window.addEventListener('blur', showComeBack);
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    // initial state
+    if (document.visibilityState === 'visible' || document.hasFocus()) {
+        clearGreeting();
+        if (titleSpan) titleSpan.textContent = defaultTitle;
+    } else {
+        showComeBack();
+    }
+});
+</script>
+
+<style>
+/* Styles for greeting separator and emoticon */
+#site-greeting { display: inline-flex; align-items: center; gap: 0.4rem; }
+#site-greeting .emo { font-weight: 700; letter-spacing: 0; }
+#site-greeting .msg { font-weight: 600; }
+#site-greeting .sep { display: inline-block; width: 1.1rem; border-bottom: 2px solid currentColor; height: 0; vertical-align: middle; margin: 0 0.25rem; }
+
+/* Ensure avatar in tag area is circular and clipped */
+.site-tag-avatar { border-radius: 9999px !important; overflow: hidden !important; display: inline-block; }
+.site-tag-avatar img, .site-tag-avatar > * { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50% !important; }
+</style>
+
+{import.meta.env.PROD && <script is:inline define:vars={{scriptUrl: url('/pagefind/pagefind.js')}}>
+async function loadPagefind() {
+    try {
+        const response = await fetch(scriptUrl, { method: 'HEAD' });
+        if (!response.ok) {
+            throw new Error(`Pagefind script not found: ${response.status}`);
+        }
+
+        const pagefind = await import(scriptUrl);
+
+        await pagefind.options({
+            excerptLength: 20
+        });
+
+        window.pagefind = pagefind;
+
+        document.dispatchEvent(new CustomEvent('pagefindready'));
+        console.log('Pagefind loaded and initialized successfully, event dispatched.');
+    } catch (error) {
+        console.error('Failed to load Pagefind:', error);
+        window.pagefind = {
+            search: () => Promise.resolve({ results: [] }),
+            options: () => Promise.resolve(),
+        };
+        document.dispatchEvent(new CustomEvent('pagefindloaderror'));
+        console.log('Pagefind load error, event dispatched.');
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadPagefind);
+} else {
+    loadPagefind();
+}
+</script>}
