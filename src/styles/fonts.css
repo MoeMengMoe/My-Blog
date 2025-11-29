@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: 'LXGWWenKai';
-  src: url('/fonts/lxgw-wenkai/LXGWWenKaiLite-Regular.woff2') format('woff2'),
-       url('/fonts/lxgw-wenkai/LXGWWenKaiLite-Regular.ttf') format('truetype');
+    /* .woff2 for Regular not present in public folder; use the available TTF as fallback to avoid 404s */
+    src: url('/fonts/lxgw-wenkai/LXGWWenKaiLite-Regular.ttf') format('truetype');
   font-weight: 400 500;
   font-style: normal;
   font-display: swap;

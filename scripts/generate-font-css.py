@@ -32,8 +32,16 @@ for font_file in sorted(KATEX_FONT_DIR.iterdir()):
 output_lines = []
 for (family, variant), sources in sorted(font_variants.items()):
     weight, style = variant_properties.get(variant, (400, "normal"))
+    # Use the repo base prefix so generated CSS stays correct when `astro.config.mjs`
+    # sets a non-empty `base`. Prefer reading from an environment variable
+    # `SITE_BASE` if provided (CI can set this). Fall back to root '/'.
+    import os
+    BASE_PREFIX = os.environ.get('SITE_BASE', '/')
+    # Ensure there's no trailing slash except the root '/'
+    if BASE_PREFIX != '/' and BASE_PREFIX.endswith('/'):
+        BASE_PREFIX = BASE_PREFIX.rstrip('/')
     src_parts = [
-        f"url('/fonts/katex/{name}') format('{ext_format[ext]}')"
+        f"url('{BASE_PREFIX}/fonts/katex/{name}') format('{ext_format[ext]}')"
         for ext, name in sources.items()
         if ext in ext_format
     ]

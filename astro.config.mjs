@@ -26,7 +26,9 @@ import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-cop
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://fuwari.vercel.app/",
+	// Use the actual deployment root. For Cloudflare Pages with a custom domain
+	// serve from the domain root, set `base` to `/` and `site` to your domain.
+	site: "https://moemeng.top/",
 	base: "/",
 	trailingSlash: "always",
 	integrations: [
