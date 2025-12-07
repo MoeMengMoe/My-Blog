@@ -1,0 +1,1 @@
+var t=(e=>(e[e.Home=0]="Home",e[e.Archive=1]="Archive",e[e.About=2]="About",e))(t||{});const o={lang:"zh-CN"};t.Home,t.Archive,t.About;const a={theme:"github-dark"},i={waline:{serverURL:"https://regal-rabanadas-33d957.netlify.app/.netlify/functions/comment",lang:"zh-CN",pageSize:10,wordLimit:0,pageview:!0,reaction:!0,requiredMeta:["nick","mail"]}};export{i as c,a as e,o as s};

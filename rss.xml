@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>面包板上的帕秋莉</title><description>MoeMengMoe 的面包板日记</description><link>https://moemeng.top/</link><language>zh-CN</language><item><title>浅谈建站经历</title><link>https://moemeng.top/posts/second/</link><guid isPermaLink="true">https://moemeng.top/posts/second/</guid><pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;这篇文章主要是介绍我是如何建站的&lt;/p&gt;
+&lt;p&gt;本站源代码托管在&lt;code&gt;GitHub&lt;/code&gt;，生成的静态内容放在了另一个仓库。域名是在&lt;code&gt;NameSilo&lt;/code&gt;购入并续费的，托管在&lt;code&gt;Cloudflare&lt;/code&gt;。使用的评论系统是&lt;code&gt;Waline&lt;/code&gt;，数据库部署在&lt;code&gt;leancloud国际版&lt;/code&gt;，云函数部署在&lt;code&gt;Netlify&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;为什么这样部署呢？因为省钱！&lt;/p&gt;
+&lt;p&gt;算一笔账：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Cloudflare Zero Trust Free Plan&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Github&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Leancloud developing plan&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Netlify Personal&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Namesilo Domain&lt;/td&gt;
+&lt;td&gt;8$ per year&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果使用类似is-a-dev的二级域名或者直接使用GitHub Pages的二级域名，直接免费&lt;/p&gt;
+&lt;p&gt;考虑到这些域名在国内的解析成功率不高，建议自购域名续费&lt;/p&gt;
+&lt;p&gt;注意，国内平台这些功能多数要备案，想避免麻烦请使用国际平台&lt;/p&gt;
+&lt;p&gt;域名注册坑比较多，尤其是续费，请务必关注&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;技术栈&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Node.js&lt;/li&gt;
+&lt;li&gt;Javascript&lt;/li&gt;
+&lt;li&gt;Html&lt;/li&gt;
+&lt;li&gt;Cloud Computing&lt;/li&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;li&gt;AI Coding&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;操作思路&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;并非喂饭教程&lt;/p&gt;
+&lt;p&gt;如果你对以上云平台了解不多，不建议尝试&lt;strong&gt;使用静态页面部署博客&lt;/strong&gt;。你可以尝试租用云服务器使用WordPress建站，相对简单&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;初始化&lt;/h2&gt;
+&lt;p&gt;目前有多种静态博客平台，比如&lt;code&gt;Hexo&lt;/code&gt;、&lt;code&gt;Hugo&lt;/code&gt;、&lt;code&gt;Astro&lt;/code&gt;等，本站是通过&lt;code&gt;Astro&lt;/code&gt;建立的，故以此为例&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意，我在建站过程中使用了AI工具，如果你在复现时遇到问题，可以尝试使用AI解答你的困惑&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Git&lt;/h3&gt;
+&lt;p&gt;我使用的模板是&lt;code&gt;Fuwari&lt;/code&gt;（&lt;a href=&quot;https://github.com/saicaca/fuwari&quot;&gt;saicaca/fuwari: ✨A static blog template built with Astro.&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;然而，这个模板暂时没有接入&lt;code&gt;Waline&lt;/code&gt;评论系统，但是在Pull request区有开发者提供了接入，故我拉取了这个暂时还未并入主分支的仓库&lt;a href=&quot;https://github.com/cimorn/WebFuwari/tree/main&quot;&gt;cimorn/WebFuwari: ✨A static blog template built with Astro.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;找一个合适的空文件夹&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/cimorn/WebFuwari.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;具体其他部署可参考项目主页&lt;a href=&quot;https://github.com/saicaca/fuwari&quot;&gt;saicaca/fuwari: ✨A static blog template built with Astro.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;提示：需要安装npm包管理工具和pnpm工具&lt;/p&gt;
+&lt;h2&gt;个性化&lt;/h2&gt;
+&lt;p&gt;个性化参考文档或者问AI&lt;/p&gt;
+&lt;h4&gt;踩坑补充&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;字体和图片要么自托管要么图床，做好路径规划，不然容易丢图&lt;/li&gt;
+&lt;li&gt;标签栏的动态变化通常需要js脚本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;部署&lt;/h2&gt;
+&lt;p&gt;这是本篇博客重点所在&lt;/p&gt;
+&lt;h3&gt;GitHub Pages 部署&lt;/h3&gt;
+&lt;p&gt;在开始之前，需要先确保你有一个 GitHub 账户，并且能够创建仓库。你可以通过以下步骤将博客部署到 GitHub Pages：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;创建仓库&lt;/strong&gt;
+在 GitHub 上创建一个新的仓库，命名为你想要的网站名称。比如，如果你的域名是 &lt;code&gt;example.com&lt;/code&gt;，那么可以创建一个名为 &lt;code&gt;example.github.io&lt;/code&gt; 的仓库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;上传代码&lt;/strong&gt;
+将 &lt;code&gt;Astro&lt;/code&gt; 项目的代码推送到 GitHub 仓库中。可以使用以下命令将代码推送到 GitHub：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git init
+git remote add origin https://github.com/yourusername/example.github.io.git
+git add .
+git commit -m &quot;Initial commit&quot;
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;启用 GitHub Pages&lt;/strong&gt;
+在 GitHub 仓库页面，进入 &quot;Settings&quot;（设置）&amp;gt; &quot;Pages&quot; 部分，选择 &lt;code&gt;main&lt;/code&gt; 分支并点击 &quot;Save&quot; 来启用 GitHub Pages。之后，GitHub 会自动为你生成一个静态网站。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Cloudflare 配置&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;添加 DNS 记录&lt;/strong&gt;
+在 &lt;code&gt;NameSilo&lt;/code&gt; 购买域名后，将其添加到 &lt;code&gt;Cloudflare&lt;/code&gt; 中进行 DNS 管理。进入 Cloudflare 仪表盘，选择 &quot;Add site&quot; 并添加你的域名。&lt;/p&gt;
+&lt;p&gt;需要先在&lt;code&gt;NameSilo&lt;/code&gt;解开域名锁，需要填写个人信息（使用地址生成器，避免信息泄露），将解析记录转到Cloudflare&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;配置 Pages&lt;/strong&gt;
+在Workers和Pages选项卡下新建项目，注意要选择下方小字建设Pages&lt;/p&gt;
+&lt;p&gt;注意填写的仓库地址必须是生成的静态界面，通常文件较源代码少，通常是&lt;code&gt;pnpm run build&lt;/code&gt;的产物&lt;/p&gt;
+&lt;p&gt;在自定义域名&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;HTTPS 配置&lt;/strong&gt;
+Cloudflare 会自动为你的域名启用 SSL/TLS 加密服务，确保你的站点支持 HTTPS。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Waline 评论系统接入&lt;/h3&gt;
+&lt;p&gt;由于选择了 &lt;code&gt;Waline&lt;/code&gt; 作为评论系统，可以按照以下步骤进行配置：&lt;/p&gt;
+&lt;p&gt;参考官方文档&lt;a href=&quot;https://waline.js.org/guide/get-started/&quot;&gt;快速上手 | Waline&lt;/a&gt;（Vercel也可，但在国内速度不如Netlify）&lt;/p&gt;
+&lt;p&gt;使用CDN加载评论组件&lt;a href=&quot;https://waline.js.org/cookbook/import/cdn.html&quot;&gt;通过 CDN 导入 Waline | Waline&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;接入评论到界面&lt;/h3&gt;
+&lt;p&gt;使用AI提示，在ts主配置文档填写serverURL即可&lt;/p&gt;
+&lt;h1&gt;总结&lt;/h1&gt;
+&lt;p&gt;总之就是这么个流程，遇到问题可以给我留言。&lt;/p&gt;
+&lt;p&gt;可以直接在下面留言，务必留邮箱，但我不常看&lt;/p&gt;
+&lt;p&gt;或者通过GitHub找到我发邮件。&lt;/p&gt;
+</content:encoded></item><item><title>初见各位，这里是Moemeng</title><link>https://moemeng.top/posts/%E5%88%9D%E8%A7%81%E5%90%84%E4%BD%8D%E8%BF%99%E9%87%8C%E6%98%AFmoemeng/</link><guid isPermaLink="true">https://moemeng.top/posts/%E5%88%9D%E8%A7%81%E5%90%84%E4%BD%8D%E8%BF%99%E9%87%8C%E6%98%AFmoemeng/</guid><pubDate>Wed, 26 Nov 2025 08:27:50 GMT</pubDate><content:encoded>&lt;h1&gt;序言&lt;/h1&gt;
+&lt;p&gt;欢迎你，我的朋友😄&lt;/p&gt;
+&lt;p&gt;这是一个基于&lt;strong&gt;Astro&lt;/strong&gt;开发的静态博客网站，目前托管在GitHub，由Cloudflare进行CDN加速，如你所见，应该会有不错的加载速度（大概？）&lt;/p&gt;
+&lt;h1&gt;初心&lt;/h1&gt;
+&lt;p&gt;建网站是我自初中以来就有的想法，那个时候的我了解到了WordPress，就迫不及待地在电脑上部署，然后用了一个非常有特色的域名。&lt;/p&gt;
+&lt;p&gt;我兴高采烈地走出门，试图访问我的网站，结果发现无法解析DNS。后来我了解到内网和外网有区别，再加上日益繁重的学业，&lt;strong&gt;所以我放弃了很多&lt;/strong&gt;，不只是这个想法，还有很多很多藏在心底的点子，还有愿望和憧憬。（我的那个很有特色的域名也早已被人注册，只恨财力不足😅）&lt;/p&gt;
+&lt;p&gt;所以，这算是一种弥补吧。&lt;/p&gt;
+&lt;p&gt;来到大学后，我常常回顾过去，想起那么多我的愿望，便有意识地去尝试。&lt;/p&gt;
+&lt;p&gt;然而，有的过期，有的变质，有的即便明知是苦涩，却不得不咽下去。&lt;/p&gt;
+&lt;p&gt;扯远了。&lt;/p&gt;
+&lt;p&gt;建立这个博客网站，一半是兴趣，一半是分享一些技术经验和生活经历，所以不会经常更新。&lt;/p&gt;
+&lt;p&gt;而且这就是互联网一个不为人知的小角落，所以不会有人介意的。&lt;/p&gt;
+&lt;p&gt;由于新站刚建立，功能简陋，后期会慢慢填上像评论等动态组件，敬请期待。&lt;/p&gt;
+&lt;h1&gt;计划&lt;/h1&gt;
+&lt;p&gt;由于新站刚建立，功能简陋，后期会慢慢填上像评论等动态组件，敬请期待。（表演欲极强）&lt;/p&gt;
+&lt;p&gt;博主是二次元呢，所以会分享一些二次元界的评论，不过多数是番剧。&lt;/p&gt;
+&lt;p&gt;评论系统我就设计为面向大众开放，就不使用基于GitHub Issue的免费方案，不然评论还要账号，太差劲了。&lt;/p&gt;
+&lt;p&gt;预期的前几篇文章估计会是谈谈我的建站经历、踩坑还有Vibe Coding的使用体验、以及近半年多次互联网大崩溃的反思吧。&lt;/p&gt;
+&lt;h1&gt;疑问&lt;/h1&gt;
+&lt;p&gt;有人会说&lt;/p&gt;
+&lt;p&gt;哎呀哎呀，为什么不发动态、不写微博、不拍短视频、不写公众号，建网站还是太吃技术力了。&lt;/p&gt;
+&lt;p&gt;首先，我不吃流量，不好这一口。其次，我写出来纯粹自娱自乐。为了追求极简，我选择了非常朴素的主题。&lt;/p&gt;
+&lt;p&gt;没人看我也认了。&lt;/p&gt;
+&lt;h1&gt;结语&lt;/h1&gt;
+&lt;p&gt;码字太累了，没有结语。&lt;/p&gt;
+&lt;p&gt;附一个傅里叶级数公式，鞭一下通信特色课的尸。
+$$
+f(t) = a_0 + \sum_{n=1}^{\infty} \left( a_n \cos\left(\frac{2\pi n t}{T}\right) + b_n \sin\left(\frac{2\pi n t}{T}\right) \right)
+$$
+附一个冒泡排序，希望你没有忘记&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/* 冒泡排序 */
+void bubbleSort(int nums[], int size) {
+    // 外循环：未排序区间为 [0, i]
+    for (int i = size - 1; i &amp;gt; 0; i--) {
+        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+        for (int j = 0; j &amp;lt; i; j++) {
+            if (nums[j] &amp;gt; nums[j + 1]) {
+                int temp = nums[j];
+                nums[j] = nums[j + 1];
+                nums[j + 1] = temp;
+            }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;%E5%88%9D%E8%A7%81%E5%90%84%E4%BD%8D%EF%BC%8C%E8%BF%99%E9%87%8C%E6%98%AFMoemeng/example-1764406520445-1.jpeg&quot; alt=&quot;example&quot; /&gt;&lt;/p&gt;
+</content:encoded></item></channel></rss>

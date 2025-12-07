@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="site tag avatar">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="32" cy="32" r="32" />
+    </clipPath>
+  </defs>
+  <rect width="64" height="64" fill="transparent" />
+  <!-- Use a relative path so the SVG works correctly when the site has a non-empty `base` (e.g. /My-Blog/) -->
+  <image href="../avatar/tag.jpg" x="0" y="0" width="64" height="64" clip-path="url(#circleClip)" preserveAspectRatio="xMidYMid slice" />
+</svg>
