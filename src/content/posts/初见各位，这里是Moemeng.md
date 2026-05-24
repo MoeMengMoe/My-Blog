@@ -1,6 +1,7 @@
 ---
 title: 初见各位，这里是Moemeng
 published: 2025-11-26T16:27:50+08:00
+image: 初见各位，这里是Moemeng/cover.jpeg
 tags:
     - introduce
 ---
@@ -9,7 +10,7 @@ tags:
 
 欢迎你，我的朋友😄
 
-这是一个基于**Hexo**开发的静态博客网站，目前托管在GitHub，由Cloudflare进行CDN加速，如你所见，应该会有不错的加载速度（大概？）
+这是一个基于**Astro**开发的静态博客网站，目前托管在GitHub，由Cloudflare进行CDN加速，如你所见，应该会有不错的加载速度（大概？）
 
 # 初心
 
@@ -78,3 +79,4 @@ void bubbleSort(int nums[], int size) {
 }
 ```
 
+![example](初见各位，这里是Moemeng/example-1764406520445-1.jpeg)

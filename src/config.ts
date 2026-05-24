@@ -32,8 +32,20 @@ export const siteConfig: SiteConfig = {
 	},
 	favicon: [
 		{
-			src: "/avatar/tag.jpg",
-			sizes: "any",
+			src: "/favicon/tag-favicon-32.png",
+			sizes: "32x32",
+		},
+		{
+			src: "/favicon/tag-favicon-64.png",
+			sizes: "64x64",
+		},
+		{
+			src: "/favicon/tag-favicon-180.png",
+			sizes: "180x180",
+		},
+		{
+			src: "/favicon/tag-favicon-192.png",
+			sizes: "192x192",
 		},
 	],
 };

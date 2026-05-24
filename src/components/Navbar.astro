@@ -123,34 +123,39 @@ loadButtonScript();
 
 // Greeting behavior: focus/blur and visibility handling
 document.addEventListener('DOMContentLoaded', () => {
-    const titleSpan = document.getElementById('site-title-text');
+    // operate on the document title (browser tab) instead of modifying the navbar text
     const greetSpan = document.getElementById('site-greeting');
     const parent = document.querySelector('[data-default-title]');
-    const defaultTitle = (parent && parent.dataset && parent.dataset.defaultTitle) ? parent.dataset.defaultTitle : (titleSpan ? titleSpan.textContent : '');
-    if (!titleSpan || !greetSpan) return;
+    const originalDocumentTitle = document.title || ((parent && parent.dataset && parent.dataset.defaultTitle) ? parent.dataset.defaultTitle : '');
     let timer = null;
 
-    function renderGreeting(emo, text) {
-        greetSpan.innerHTML = `<span class="emo">${emo}</span><span class="sep" aria-hidden="true"></span><span class="msg">${text}</span>`;
-        greetSpan.style.opacity = '1';
+    function setTabTitle(text) {
+        try {
+            document.title = text;
+        } catch (e) {
+            // ignore if not writable
+        }
     }
+
     function clearGreeting() {
-        greetSpan.style.opacity = '0';
-        greetSpan.innerHTML = '';
+        // restore the original document title
+        setTabTitle(originalDocumentTitle);
     }
+
     function showWelcome() {
-        renderGreeting('(^_^)','Welcome Back！');
+        setTabTitle('(^_^) Welcome Back！');
         if (timer) clearTimeout(timer);
         timer = setTimeout(() => {
             clearGreeting();
-            if (titleSpan) titleSpan.textContent = defaultTitle;
             timer = null;
         }, 3000);
     }
+
     function showComeBack() {
         if (timer) { clearTimeout(timer); timer = null; }
-        renderGreeting('(>_<)', 'Come Back!');
+        setTabTitle('(>_<) Come Back!');
     }
+
     function handleVisibility() {
         if (document.visibilityState === 'visible') {
             showWelcome();
@@ -162,12 +167,22 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('blur', showComeBack);
     document.addEventListener('visibilitychange', handleVisibility);
 
-    // initial state
+    // initial state: if page is visible/focused show the welcome briefly, otherwise show "Come Back"
     if (document.visibilityState === 'visible' || document.hasFocus()) {
-        clearGreeting();
-        if (titleSpan) titleSpan.textContent = defaultTitle;
+        showWelcome();
     } else {
         showComeBack();
+    }
+
+    // Expose functions for debugging in the browser console
+    try {
+        window.__fuwari_navbar = {
+            showWelcome,
+            showComeBack,
+            clearGreeting,
+        };
+    } catch (e) {
+        // no-op if window is not writable for some reason
     }
 });
 </script>

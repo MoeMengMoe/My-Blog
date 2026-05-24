@@ -13,9 +13,11 @@
     "new-post": "node scripts/new-post.js",
     "format": "biome format --write ./src",
     "lint": "biome check --write ./src",
+    "deploy:gh-pages": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-ghpages.ps1",
+    "deploy:gh-pages:git": "node ./scripts/deploy-ghpages.cjs",
     "sync-post-images": "node scripts/sync-post-images.cjs",
     "predev": "node scripts/sync-post-images.cjs",
-    "prebuild": "node scripts/sync-post-images.cjs",
+    "prebuild": "node -e \"if(process.env.SKIP_BUILD_WRAPPER) process.exit(0); require('./scripts/build-temp-content.cjs')\"",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
