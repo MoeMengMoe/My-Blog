@@ -19,6 +19,7 @@ onMount(async () => {
 		pageview: commentConfig.waline.pageview,
 		reaction: commentConfig.waline.reaction,
 		requiredMeta: commentConfig.waline.requiredMeta,
+		avatar: "retro",
 		// 可以在这里自定义 emoji
 		emoji: [
 			"//unpkg.com/@waline/emojis@1.2.0/weibo",
@@ -38,12 +39,12 @@ onMount(async () => {
     /* 1. 颜色适配：让按钮和高亮色跟随主题 */
     --waline-theme-color: var(--primary);
     --waline-active-color: var(--primary);
-    
+
     /* 2. 字体与背景适配 */
     --waline-font-size: 1rem;
     --waline-bg-color: transparent; /* 让它透出 card-base 的背景 */
-    --waline-bg-color-light: var(--card-bg); 
-    
+    --waline-bg-color-light: var(--card-bg);
+
     /* 3. 边框与圆角：跟随 Fuwari 的圆润风格 */
     --waline-border-color: var(--line-divider);
     --waline-avatar-radius: 50%;
@@ -58,7 +59,7 @@ onMount(async () => {
   }
 
   /* --- 细节修饰 --- */
-  
+
   /* 输入框美化 */
   .wl-editor {
     transition: all 0.3s ease;
@@ -85,7 +86,7 @@ onMount(async () => {
     margin-top: 0.5rem !important;
     font-size: 0.75rem !important;
   }
-  
+
   /* 调整卡片内部间距 */
   .waline-wrapper {
     margin-top: 0.5rem;
