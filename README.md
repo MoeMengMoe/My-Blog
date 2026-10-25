@@ -1,125 +1,81 @@
-# 🍥Fuwari  
-![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen) 
-![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue) 
-[![DeepWiki](https://img.shields.io/badge/DeepWiki-saicaca%2Ffuwari-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAyCAYAAAAnWDnqAAAAAXNSR0IArs4c6QAAA05JREFUaEPtmUtyEzEQhtWTQyQLHNak2AB7ZnyXZMEjXMGeK/AIi+QuHrMnbChYY7MIh8g01fJoopFb0uhhEqqcbWTp06/uv1saEDv4O3n3dV60RfP947Mm9/SQc0ICFQgzfc4CYZoTPAswgSJCCUJUnAAoRHOAUOcATwbmVLWdGoH//PB8mnKqScAhsD0kYP3j/Yt5LPQe2KvcXmGvRHcDnpxfL2zOYJ1mFwrryWTz0advv1Ut4CJgf5uhDuDj5eUcAUoahrdY/56ebRWeraTjMt/00Sh3UDtjgHtQNHwcRGOC98BJEAEymycmYcWwOprTgcB6VZ5JK5TAJ+fXGLBm3FDAmn6oPPjR4rKCAoJCal2eAiQp2x0vxTPB3ALO2CRkwmDy5WohzBDwSEFKRwPbknEggCPB/imwrycgxX2NzoMCHhPkDwqYMr9tRcP5qNrMZHkVnOjRMWwLCcr8ohBVb1OMjxLwGCvjTikrsBOiA6fNyCrm8V1rP93iVPpwaE+gO0SsWmPiXB+jikdf6SizrT5qKasx5j8ABbHpFTx+vFXp9EnYQmLx02h1QTTrl6eDqxLnGjporxl3NL3agEvXdT0WmEost648sQOYAeJS9Q7bfUVoMGnjo4AZdUMQku50McDcMWcBPvr0SzbTAFDfvJqwLzgxwATnCgnp4wDl6Aa+Ax283gghmj+vj7feE2KBBRMW3FzOpLOADl0Isb5587h/U4gGvkt5v60Z1VLG8BhYjbzRwyQZemwAd6cCR5/XFWLYZRIMpX39AR0tjaGGiGzLVyhse5C9RKC6ai42ppWPKiBagOvaYk8lO7DajerabOZP46Lby5wKjw1HCRx7p9sVMOWGzb/vA1hwiWc6jm3MvQDTogQkiqIhJV0nBQBTU+3okKCFDy9WwferkHjtxib7t3xIUQtHxnIwtx4mpg26/HfwVNVDb4oI9RHmx5WGelRVlrtiw43zboCLaxv46AZeB3IlTkwouebTr1y2NjSpHz68WNFjHvupy3q8TFn3Hos2IAk4Ju5dCo8B3wP7VPr/FGaKiG+T+v+TQqIrOqMTL1VdWV1DdmcbO8KXBz6esmYWYKPwDL5b5FA1a0hwapHiom0r/cKaoqr+27/XcrS5UwSMbQAAAABJRU5ErkJggg==)](https://deepwiki.com/saicaca/fuwari)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsaicaca%2Ffuwari.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsaicaca%2Ffuwari?ref=badge_shield&issueType=license)
+# 面包板上的帕秋莉
 
-A static blog template built with [Astro](https://astro.build).
+MoeMengMoe 的面包板日记，站点地址：<https://moemeng.top/>。
 
-[**🖥️ Live Demo (Vercel)**](https://fuwari.vercel.app)
+本项目于 2026-10-25 从 Fuwari 迁移到 [Firefly](https://github.com/CuteLeaf/Firefly) 6.16.8，
+基于上游提交 `cd920b035b475fe9a6cd3a88afb42cf9440bb8a9`。
+保留原有文章、关于页、文章链接、壁纸、头像、本地字体和 Waline 服务。
 
-![Preview Image](https://raw.githubusercontent.com/saicaca/resource/main/fuwari/home.png)
+## 本地开发
 
-🌏 README in
-[**中文**](https://github.com/saicaca/fuwari/blob/main/docs/README.zh-CN.md) /
-[**日本語**](https://github.com/saicaca/fuwari/blob/main/docs/README.ja.md) /
-[**한국어**](https://github.com/saicaca/fuwari/blob/main/docs/README.ko.md) /
-[**Español**](https://github.com/saicaca/fuwari/blob/main/docs/README.es.md) /
-[**ไทย**](https://github.com/saicaca/fuwari/blob/main/docs/README.th.md) /
-[**Tiếng Việt**](https://github.com/saicaca/fuwari/blob/main/docs/README.vi.md) /
-[**Bahasa Indonesia**](https://github.com/saicaca/fuwari/blob/main/docs/README.id.md) (Provided by the community and may not always be up-to-date)
+项目固定使用 pnpm 11.22.0 和 Node 24.22.1。已安装的 pnpm 会根据项目配置下载所需版本，
+不会替换系统全局 Node。首次安装需要联网。
 
-## ✨ Features
-
-- [x] Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
-- [x] Smooth animations and page transitions
-- [x] Light / dark mode
-- [x] Customizable theme colors & banner
-- [x] Responsive design
-- [x] Comment system (Waline)
-- [x] Search functionality with [Pagefind](https://pagefind.app/)
-- [x] [Markdown extended features](https://github.com/saicaca/fuwari?tab=readme-ov-file#-markdown-extended-syntax)
-- [x] Table of contents
-- [x] RSS feed
-
-## 🚀 Getting Started
-
-1. Create your blog repository:
-    - [Generate a new repository](https://github.com/saicaca/fuwari/generate) from this template or fork this repository.
-    - Or run one of the following commands:
-       ```sh
-       npm create fuwari@latest
-       yarn create fuwari
-       pnpm create fuwari@latest
-       bun create fuwari@latest
-       deno run -A npm:create-fuwari@latest
-       ```
-2. To edit your blog locally, clone your repository, run `pnpm install` to install dependencies.
-    - Install [pnpm](https://pnpm.io) `npm install -g pnpm` if you haven't.
-3. Edit the config file `src/config.ts` to customize your blog.
-4. Run `pnpm new-post <filename>` to create a new post and edit it in `src/content/posts/`.
-5. Deploy your blog to Vercel, Netlify, GitHub Pages, etc. following [the guides](https://docs.astro.build/en/guides/deploy/). You need to edit the site configuration in `astro.config.mjs` before deployment.
-
-## 📝 Frontmatter of Posts
-
-```yaml
----
-title: My First Blog Post
-published: 2023-09-09
-description: This is the first post of my new Astro blog.
-image: ./cover.jpg
-tags: [Foo, Bar]
-category: Front-end
-draft: false
-lang: jp      # Set only if the post's language differs from the site's language in `config.ts`
----
+```bash
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
-## 🧩 Markdown Extended Syntax
+## 写文章
 
-In addition to Astro's default support for [GitHub Flavored Markdown](https://github.github.com/gfm/), several extra Markdown features are included:
+```bash
+pnpm new-post "文章标题"
+```
 
-- Admonitions ([Preview and Usage](https://fuwari.vercel.app/posts/markdown-extended/#admonitions))
-- GitHub repository cards ([Preview and Usage](https://fuwari.vercel.app/posts/markdown-extended/#github-repository-cards))
-- Enhanced code blocks with Expressive Code ([Preview](https://fuwari.vercel.app/posts/expressive-code/) / [Docs](https://expressive-code.com/))
+文章保存在 `src/content/posts/`。旧文章无需修改文件名或 frontmatter。
+新文章会自动生成 `slug`，可以在发布前调整；已发布文章的 slug 应保持稳定。
 
-## ⚡ Commands
+文章图片继续放在同级子目录，使用相对路径，例如：
 
-All commands are run from the root of the project, from a terminal:
+```markdown
+![示例](文章标题/photo.png)
+```
 
-| Command                    | Action                                              |
-|:---------------------------|:----------------------------------------------------|
-| `pnpm install`             | Installs dependencies                               |
-| `pnpm dev`                 | Starts local dev server at `localhost:4321`         |
-| `pnpm build`               | Build your production site to `./dist/`             |
-| `pnpm preview`             | Preview your build locally, before deploying        |
-| `pnpm check`               | Run checks for errors in your code                  |
-| `pnpm format`              | Format your code using Biome                        |
-| `pnpm new-post <filename>` | Create a new post                                   |
-| `pnpm astro ...`           | Run CLI commands like `astro add`, `astro check`    |
-| `pnpm astro --help`        | Get help using the Astro CLI                        |
+开发和构建时会运行原有图片同步脚本；正文和 frontmatter 的图片由 Astro 原生处理，
+不再临时替换 `src/content`，也不再重复构建。
 
+## 配置
 
+Firefly 将原来的 `src/config.ts` 拆分到了 `src/config/`：
 
-## Comment system
+| 配置文件 | 用途 |
+| --- | --- |
+| `siteConfig.ts` | 标题、域名、语言、主题色、页面开关 |
+| `profileConfig.ts` | 头像、个人简介、社交链接 |
+| `navBarConfig.ts` | 导航栏、搜索 |
+| `backgroundWallpaper.ts` | 桌面和手机壁纸 |
+| `commentConfig.ts` | Waline 服务与评论选项 |
+| `fontConfig.ts` | 本地霞鹜文楷与 JetBrains Mono |
+| `sidebarConfig.ts` | 资料、分类、标签与文章目录 |
 
-This theme supports **Waline**. Configuration is located in `src/config.ts`.
+新主题的示例社交、动态、项目、相册、打赏等页面默认关闭。
+需要时在 `siteConfig.ts` 中开启并填写自己的配置和内容。
 
-Waline requires a separate backend server.
+## 检查、构建和部署
 
-1. **Deploy Server**: Follow the [Waline Get Started](https://waline.js.org/guide/get-started/) guide to deploy your server on Vercel, Netlify, or Docker.
-2. **Set Secrets**: Configure your database keys (e.g., `LEAN_ID`, `LEAN_KEY` for LeanCloud) in your hosting platform's **Environment Variables** (Settings -> Environment Variables). **Do not put database keys in this theme's code.**
-3. **Connect to Theme**: Get your server URL (e.g., `https://your-waline-app.vercel.app`) and update `src/config.ts`:
+```bash
+pnpm check
+pnpm type-check
+pnpm build
+pnpm preview
+```
 
-   ```typescript
-   // src/config.ts
-   export const commentConfig: CommentConfig = {
-     enable: true,
-     type: 'waline',
-     waline: {
-       serverURL: '[https://your-waline-app.vercel.app](https://your-waline-app.vercel.app)', // <--- Put your Server URL here
-       // ...
-     },
-   }
+`pnpm build` 包含图片同步、GitHub 卡片缓存、图片占位色、Astro 静态构建、
+资源整理和 Pagefind 搜索索引生成，产物在 `dist/`。
 
+原有发布命令继续保留：
 
+```powershell
+pnpm run deploy:gh-pages
+```
 
-## ✏️ Contributing
+推送源码不会自动发布。GitHub Actions 在 `main` 和迁移分支上运行检查与完整构建。
+发布命令会将静态产物推送到原仓库的 `gh-pages` 分支。
 
-Check out the [Contributing Guide](https://github.com/saicaca/fuwari/blob/main/CONTRIBUTING.md) for details on how to contribute to this project.
+迁移范围、兼容处理和后续更新方法见 [迁移记录](docs/firefly-migration.md)。
 
-## 📄 License
+## 上游与许可
 
-This project is licensed under the MIT License.
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsaicaca%2Ffuwari.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsaicaca%2Ffuwari?ref=badge_large&issueType=license)
+- 主题：[CuteLeaf/Firefly](https://github.com/CuteLeaf/Firefly)，基于 [saicaca/fuwari](https://github.com/saicaca/fuwari)。
+- 主题源码遵循项目中的 [MIT License](LICENSE)。
+- 本站文章保持原有 CC BY-NC-SA 4.0 许可；图片及其他资源保留各自的权利归属。

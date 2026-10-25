@@ -1,0 +1,8 @@
+{
+	"saicaca/fuwari": {
+		"description": "✨A static blog template built with Astro. ",
+		"language": "Astro",
+		"avatarUrl": "https://avatars.githubusercontent.com/u/25200299?v=4",
+		"license": "MIT"
+	}
+}

@@ -1,0 +1,35 @@
+<script>
+	let originalTitle = document.title;
+	let timer: ReturnType<typeof setTimeout> | undefined;
+	let showingGreeting = false;
+
+	function restoreTitle() {
+		clearTimeout(timer);
+		timer = undefined;
+		if (showingGreeting) document.title = originalTitle;
+		showingGreeting = false;
+	}
+
+	function showGreeting(text: string, temporary = false) {
+		if (!showingGreeting) originalTitle = document.title;
+		clearTimeout(timer);
+		showingGreeting = true;
+		document.title = text;
+		if (temporary) timer = setTimeout(restoreTitle, 3000);
+	}
+
+	window.addEventListener("focus", () => showGreeting("(^_^) Welcome Back!", true));
+	window.addEventListener("blur", () => showGreeting("(>_<) Come Back!"));
+	document.addEventListener("visibilitychange", () => {
+		if (document.hidden) showGreeting("(>_<) Come Back!");
+		else showGreeting("(^_^) Welcome Back!", true);
+	});
+	// Swup replaces the title during navigation; always restore the new page title.
+	document.addEventListener("swup:visit:start", restoreTitle);
+	document.addEventListener("swup:page:view", () => {
+		clearTimeout(timer);
+		timer = undefined;
+		showingGreeting = false;
+		originalTitle = document.title;
+	});
+</script>
