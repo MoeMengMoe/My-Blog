@@ -3,7 +3,9 @@ title: 初见各位，这里是Moemeng
 published: 2025-11-26T16:27:50+08:00
 image: 初见各位，这里是Moemeng/cover.jpeg
 tags:
-    - introduce
+    - 自我介绍
+    - 生活随笔
+    - 建站
 ---
 
 # 序言

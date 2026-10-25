@@ -3,7 +3,12 @@ title: 浅谈建站经历
 published: 2025-12-04
 description: ''
 image: ''
-tags: []
+tags:
+    - 建站
+    - Astro
+    - GitHub Pages
+    - Cloudflare
+    - Waline
 category: ''
 draft: false 
 lang: 'en-us' 
