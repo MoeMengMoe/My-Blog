@@ -34,6 +34,7 @@ export function collectUsedFontCssVars(
 	if (config.bannerSubtitleFont) used.add(config.bannerSubtitleFont);
 	if (config.navbarTitleFont) used.add(config.navbarTitleFont);
 	if (config.codeFont) used.add(config.codeFont);
+	if (config.readingFont) used.add(config.readingFont);
 
 	return used;
 }

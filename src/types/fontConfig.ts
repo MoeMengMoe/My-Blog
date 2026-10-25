@@ -32,7 +32,9 @@ export type FontDefinition = {
 	/** 对应的 CSS 变量名（如 "--font-inter"） */
 	cssVariable: string;
 	/** 字体提供商（内置名称或自定义 provider 对象） */
-	provider: BuiltinFontProvider | CustomFontProvider;
+	provider: BuiltinFontProvider | CustomFontProvider | "external";
+	/** Browser-loaded stylesheet, without build-time font downloads. */
+	stylesheet?: string;
 	/** 字重列表 */
 	weights?: Array<string | number>;
 	/** 字体样式 */
@@ -69,6 +71,8 @@ export type FontSelectionConfig = {
 	navbarTitleFont?: string;
 	/** 代码块字体 CSS 变量名（用于代码高亮和等宽字体场景） */
 	codeFont?: string;
+	/** Article text can use a separate reading face from the interface. */
+	readingFont?: string;
 	/**
 	 * 本地字体子集化配置（构建时由 scripts/subset-fonts.ts 处理）
 	 * key 为 fonts 数组中对应的 cssVariable，value 为子集化选项。

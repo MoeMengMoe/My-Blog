@@ -2,6 +2,24 @@
 
 .custom-md {
   overflow-wrap: break-word;
+  font-family: var(--font-reading, inherit);
+  font-size: 1.125rem;
+  line-height: 1.95;
+  letter-spacing: 0.025em;
+
+  @media (min-width: 768px) {
+    font-size: 1.1875rem;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-source-han-serif, inherit);
+    line-height: 1.5;
+    letter-spacing: 0.015em;
+  }
+
+  :is(code, pre, kbd, .katex) {
+    letter-spacing: normal;
+  }
 
   body.sticky-navbar & {
     [id] {

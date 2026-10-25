@@ -1,7 +1,7 @@
 import { sidebarLayoutConfig } from "@/config";
 
 /** 侧栏列宽，全仓库唯一字面值出处 */
-const SIDEBAR_WIDTH = "17.5rem";
+const SIDEBAR_WIDTH = "15rem";
 
 const SIDEBAR_TRACK = "var(--grid-sidebar-width)";
 

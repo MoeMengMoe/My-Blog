@@ -2,54 +2,37 @@ import type { FontDefinition, FontSelectionConfig } from "@/types/fontConfig";
 
 export const fontsList: FontDefinition[] = [
 	{
-		name: "LXGWWenKai",
+		name: "Noto Serif CJK",
+		cssVariable: "--font-source-han-serif",
+		provider: "external",
+		stylesheet: "https://fontsapi.zeoseven.com/285/main/result.css",
+		fallbacks: ["Songti SC", "SimSun", "serif"],
+	},
+	{
+		name: "LXGW WenKai",
 		cssVariable: "--font-lxgw-wenkai",
-		provider: "local",
-		options: {
-			variants: [
-				{
-					src: ["./public/fonts/lxgw-wenkai/LXGWWenKaiLite-Regular.ttf"],
-					weight: 400,
-					style: "normal",
-				},
-				{
-					src: ["./public/fonts/lxgw-wenkai/LXGWWenKaiLite-Medium.woff2"],
-					weight: 700,
-					style: "normal",
-				},
-			],
-		},
-		fallbacks: ["sans-serif"],
+		provider: "external",
+		stylesheet: "https://fontsapi.zeoseven.com/292/main/result.css",
+		fallbacks: ["KaiTi", "STKaiti", "serif"],
 	},
 	{
 		name: "JetBrains Mono",
 		cssVariable: "--font-jetbrains-mono",
-		provider: "local",
-		options: {
-			variants: [
-				{
-					src: ["./public/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2"],
-					weight: 400,
-					style: "normal",
-				},
-				{
-					src: ["./public/fonts/jetbrains-mono/JetBrainsMono-Bold.woff2"],
-					weight: 700,
-					style: "normal",
-				},
-			],
-		},
+		provider: "external",
+		stylesheet:
+			"https://registry.npmmirror.com/@fontsource/jetbrains-mono/5.2.8/files/latin.css",
 		fallbacks: ["monospace"],
 	},
 ];
 
 export const fontConfig: FontSelectionConfig = {
 	enable: true,
-	selected: ["--font-lxgw-wenkai"],
-	bannerTitleFont: "--font-lxgw-wenkai",
+	selected: ["--font-source-han-serif"],
+	readingFont: "--font-lxgw-wenkai",
+	bannerTitleFont: "--font-source-han-serif",
 	bannerSubtitleFont: "--font-lxgw-wenkai",
-	navbarTitleFont: "--font-lxgw-wenkai",
+	navbarTitleFont: "--font-source-han-serif",
 	codeFont: "--font-jetbrains-mono",
-	// Keep the full fonts so comments can display characters absent from posts.
+	// Online CJK stylesheets use unicode-range subsets, including comment text.
 	subsetFonts: {},
 };

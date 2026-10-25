@@ -2,7 +2,7 @@
 
 :root {
 	--immersive-toc-width: 20rem;
-	--immersive-reading-width: 46rem;
+	--immersive-reading-width: 52rem;
 }
 
 /* 沉浸态：阅读面强制为页面底色，遮盖任何壁纸/背景残留；顶部间距归一 1rem */
@@ -77,7 +77,7 @@ body.immersive-reading #main-grid {
 /* 文章卡片：居中 + 限宽 */
 body.immersive-reading #post-container {
 	width: 100% !important;
-	max-width: var(--immersive-reading-width, 46rem) !important;
+	max-width: var(--immersive-reading-width, 52rem) !important;
 	margin: 0 auto !important;
 }
 

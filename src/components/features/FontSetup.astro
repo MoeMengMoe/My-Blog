@@ -9,7 +9,7 @@
  * 字体的 fallback 由各字体定义中的 fallbacks 字段控制（Astro Font API 处理），
  */
 import { Font } from "astro:assets";
-import { fontConfig } from "@/config";
+import { fontConfig, fontsList } from "@/config";
 import { collectUsedFontCssVars } from "@/utils/fontHelper";
 
 // 使用共享的工具函数收集所有需要加载的 CSS 变量名（selected + 各区域字体，去重）
@@ -17,6 +17,22 @@ import { collectUsedFontCssVars } from "@/utils/fontHelper";
 const allCssVars = fontConfig.enable
 	? collectUsedFontCssVars(fontConfig)
 	: new Set<string>();
+const externalFonts = fontsList.filter(
+	(font) =>
+		allCssVars.has(font.cssVariable) &&
+		font.provider === "external" &&
+		font.stylesheet,
+);
+const astroCssVars = [...allCssVars].filter(
+	(cssVar) => !externalFonts.some((font) => font.cssVariable === cssVar),
+);
+const fontOrigins = [
+	...new Set(
+		externalFonts.flatMap((font) =>
+			font.stylesheet ? [new URL(font.stylesheet).origin] : [],
+		),
+	),
+];
 
 // 统一解析 selected 为数组（用于后续 body font-family 和 preload 判断）
 const selectedIds: string[] =
@@ -29,8 +45,7 @@ const selectedIds: string[] =
 // 生成 body 的 font-family 值
 // 每个字体的 fallback 由其在 fonts 中的 fallbacks 字段控制
 // 这里只拼接 CSS 变量引用，末尾加系统字体作为最终保底
-const SYSTEM_FONT_STACK =
-	"system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif";
+const SYSTEM_FONT_STACK = '"Songti SC", "SimSun", "Times New Roman", serif';
 // 代码字体的系统保底栈，codeFont 没配置或字体加载失败时用它，保证行内代码/代码块始终是等宽字体
 const MONO_FONT_STACK =
 	'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
@@ -53,6 +68,7 @@ const navbarTitleFontVar = fontConfig.enable
 	? fontConfig.navbarTitleFont || ""
 	: "";
 const codeFontVar = fontConfig.enable ? fontConfig.codeFont || "" : "";
+const readingFontVar = fontConfig.enable ? fontConfig.readingFont || "" : "";
 // --font-code 由 fontConfig.codeFont 决定，行内代码和代码块统一引用它
 // 末尾始终带 MONO_FONT_STACK 保底，避免 codeFont 为空时 var() 解析失败导致字体回退到正文字体
 const codeFontFamily = codeFontVar
@@ -61,9 +77,11 @@ const codeFontFamily = codeFontVar
 ---
 
 <!-- Astro Font API: 自动下载、缓存并生成优化的 @font-face -->
-{Array.from(allCssVars).map((cssVar) => (
+{fontOrigins.map((origin) => <link rel="preconnect" href={origin} crossorigin />)}
+{externalFonts.map((font) => <link rel="stylesheet" href={font.stylesheet} referrerpolicy="no-referrer" />)}
+{astroCssVars.map((cssVar) => (
   <Font
-    cssVariable={cssVar as any}
+    cssVariable={cssVar as never}
     preload={selectedFontVars.includes(cssVar)}
   />
 ))}
@@ -73,7 +91,9 @@ const codeFontFamily = codeFontVar
 <style
   set:html={`
   :root {
+    ${externalFonts.map((font) => `${font.cssVariable}: ${[font.name, ...(font.fallbacks ?? [])].map((name) => name === "serif" || name === "monospace" ? name : JSON.stringify(name)).join(", ")};`).join("\n    ")}
     --font-code: ${codeFontFamily};
+    ${readingFontVar ? `--font-reading: var(${readingFontVar});` : ""}
     ${bannerTitleFontVar ? `--font-banner-title: var(${bannerTitleFontVar}, inherit);` : ""}
     ${bannerSubtitleFontVar ? `--font-banner-subtitle: var(${bannerSubtitleFontVar}, inherit);` : ""}
     ${navbarTitleFontVar ? `--font-navbar-title: var(${navbarTitleFontVar}, inherit);` : ""}
