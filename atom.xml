@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://moemeng.top/</id>
+  <title type="text">面包板上的帕秋莉</title>
+  <subtitle type="text">MoeMengMoe 的面包板日记</subtitle>
+  <updated>2026-10-25T00:00:00.000Z</updated>
+  <author><name>面包板上的帕秋莉</name></author>
+  <link rel="alternate" href="https://moemeng.top/"/>
+  <link rel="self" href="https://moemeng.top/atom.xml"/>
+  <generator uri="https://github.com/CuteLeaf/Firefly">Firefly v6.16.8</generator>
+    <entry>
+      <id>https://moemeng.top/posts/introductory-programming-study-guide/</id>
+      <title type="text">编程导论学习经验分享：从课堂跟课到 LAB 与考前复习</title>
+      <published>2026-10-25T00:00:00.000Z</published>
+      <updated>2026-10-25T00:00:00.000Z</updated>
+      <author><name>面包板上的帕秋莉</name></author>
+      <link rel="alternate" href="https://moemeng.top/posts/introductory-programming-study-guide/"/>
+      <summary type="text">面向初次接触编程与英语授课的同学，分享编程导论的课堂跟课、Obsidian 笔记、AI 辅助学习、LAB 练习和考前复习方法。</summary>
+      <content type="html"><![CDATA[<section><h1>引入<a href="#引入"><span>#</span></a></h1><p>本篇博客是笔者应海南格院学习发展部部长邀请，写给初次接触计算机编程和外语授课的同学。本文的所有观点均来自本人日常学习过程的总结，具有一定局限性。</p><p><code>Introductory Programme</code>（<code>编程导论</code>，<code>IP</code>）是一门英方执教的课程，包含日常课程、LAB，还有各类考试。在今年 IP 课程大改革，尤其是 AI 浪潮带来的学习方法和思考方法的大变革的情况下，无论是代码水平、工程化能力还是英语水平，都带来了更高的要求。笔者有幸享受到了 AI 发展带来的红利，在充分利用 AI 的基础上取得了不错的成绩。</p><p>笔者只是入门 <code>OIer</code>，曾经学习过算法基础、数据结构和计算机网络，现在主要写嵌入式业务代码。从我的经验来说，从零基础的角度来看，IP 不是一门很难学的课程，学习内容多以记忆为主（因为毕竟是基础语法），辅以代码练习、习题模拟就能拿到不错的分数。</p><p>接下来，我将从跟课、作业、复习等方面介绍我的学习方法和避坑指南。</p></section>
+<section><h1>一、跟课篇<a href="#一跟课篇"><span>#</span></a></h1><section><h2>1. 跟课的重要性<a href="#1-跟课的重要性"><span>#</span></a></h2><p>作为英方专业课的重要部分，IP 的跟课是具有重要意义的。许多同学会在上完一二节课时会觉得“不过是讲 PPT”，或者觉得自己在底下学更有效率，更能“听懂”，更或者部分基础好到能打 ICPC 的同学会直接放掉，然后突击。这样想很正常，甚至我自己就这样做过，但我仍然不太推荐。</p><p>原因一是作为新生，在英语听力暂时还未达到能完全听懂外教的情况下，多参加外教课是一举两得的选择；二是上课的老师通常会补充 PPT 缺失的内容（Moodle 上不一定就是最新课件），仍然在大纲考察范围内；三是课外学习（B 站课程、国内某红皮书教材、提前学过的 OI 基础）与课程大纲并不完全重叠。举个例子，IP 的手册可能涉及教你认工作目录、写简单的编译命令，国内教材就不会；相反的，国内教材的内存管理学习的相对深入，IP 就不会这样深入；四是上课过程会有互动，简单的问题加反馈可以让你更好的理解本质。</p></section><section><h2>2. 跟课小技巧<a href="#2-跟课小技巧"><span>#</span></a></h2><section><h3>课前准备<a href="#课前准备"><span>#</span></a></h3><p>一般不会怎么准备是绝大多数同学的选择，这一点没错，但是一下内容你需要提前做好。</p><ul>
+<li>课程学习文件夹准备
+无论你是 IPad 手写笔记还是电脑笔记，都需要你在课前打开对应文件夹，做好分类。</li>
+<li>课件提前下载与准备
+提前到 Moodle 下完整个学期的课件，要看时候直接打开。</li>
+<li>设置自己的工作区
+无论你是电脑也好平板也罢，左右分屏打开课件与笔记或者 AI 助手。</li>
+</ul></section><section><h3>跟课流程<a href="#跟课流程"><span>#</span></a></h3><p>这里提前声明，以下是笔者在跟课时的工作流，读者可以参考，不必照抄。</p><section><h4>笔记准备<a href="#笔记准备"><span>#</span></a></h4><p>这里我使用一款基于 Markdown 语言的知识库整理软件 <strong>Obsidian</strong> 来完成知识归档，请注意，此软件功能拓展极其强大，这里我不做赘述，但基础功能足够使用。（除此之外，<strong>思源笔记</strong> 也是不错的选择，相比于 OB 更简单好上手，没接触过的同学选这个）</p><p></p><figure><img alt="image-20261024174320689" loading="lazy" width="2557" height="1565" src="/_astro/image-20261024174320689.DNXFEUHn_Z24RYgb.webp" /><figcaption>image-20261024174320689</figcaption></figure><p></p><p></p><figure><img alt="image-20261024175416572" loading="lazy" width="2560" height="1563" src="/_astro/image-20261024175416572.DqN9_FdW_ZUxBIa.webp" /><figcaption>image-20261024175416572</figcaption></figure><p></p></section><section><h4>核心笔记构建<a href="#核心笔记构建"><span>#</span></a></h4><p>由于 IP 课程涉及大量代码、表格还有专业术语，使用手写笔记对笔者而言比较困难，故我采用 AI 作为课件阅读者与整理者，自己当审核兼学习。提前截图加复制几张语义连续的课件发送给 AI，同时将回答粘贴在自己的笔记并且迅速阅读，发现问题直接反馈 AI 然后回答，当场答疑并记录。</p><p>这样一来不仅能降低听英文课时的理解负担，同时做完了笔记（是本人能够理解的），而且相当于听了两遍课程，理解加深。但这样带来几个误区：</p><ul>
+<li>我为什么不直接发完一整个 PPT 而是截图？
+在我的使用中，按一个完整知识点分批提问，更方便核对回答与课件是否一致。</li>
+<li>我为什么不私下做而是到课上做？
+私下做会让人想翘课，但是一旦翘课，自己也就根本想不起来做了。</li>
+</ul></section><section><h4>设置工作区<a href="#设置工作区"><span>#</span></a></h4><p>通过分屏，将课件、AI、编辑器放在一个屏幕上，以达到以下效果：</p><p></p><figure><img alt="image-20261025114641968" loading="lazy" width="2539" height="1540" src="/_astro/image-20261025114641968.CB6v55n5_1ui2Xb.webp" /><figcaption>image-20261025114641968</figcaption></figure><p></p></section><section><h4>优劣<a href="#优劣"><span>#</span></a></h4><p>这样做好处在于阅读了电子笔记、完成了记录归档、降低了理解负担，同时还可以就课上疑问即时问清楚。</p><p>缺点也存在：不如手写的记忆深刻；笔记记忆不方便，易混乱。</p><p>通常情况下，我们可以通过提示词约束回答，实现格式的统一，以下是我常用的提示词。</p><div><figure><figcaption></figcaption><pre><code><div><div><div>1</div></div><div><span>请根据截图整理适合保存为 Markdown 笔记的内容：</span></div></div><div><div><div>2</div></div><div>
+</div></div><div><div><div>3</div></div><div><span>1.</span><span> 每张 PPT 使用一个二级标题，标题下按需使用三级标题。</span></div></div><div><div><div>4</div></div><div><span>2.</span><span> 以截图内容为主；补充解释请单独标注。</span></div></div><div><div><div>5</div></div><div><span>3.</span><span> 英文专业术语首次出现时，附上中文含义。</span></div></div><div><div><div>6</div></div><div><span>4.</span><span> 保留关键代码、公式和易错点，解释简洁。</span></div></div><div><div><div>7</div></div><div><span>5.</span><span> 截图有页码时标注页码，没有则不添加。</span></div></div><div><div><div>8</div></div><div><span>6.</span><span> 无法辨认或不能确定的内容请明确说明。</span></div></div><div><div><div>9</div></div><div><span>7.</span><span> 将整理结果放在代码块中，结尾不追加提问。</span></div></div></code></pre><div><div></div><div></div></div></figure></div></section></section></section><section><h2>3. 课后复习<a href="#3-课后复习"><span>#</span></a></h2><p>IP 课程一般不需要即时的课后复习，想要得到语法训练可以完成课程 PPT 上指定的课本课后习题或者完成课上案例即可。</p></section></section>
+<section><h1>二、LAB 及复习篇<a href="#二lab-及复习篇"><span>#</span></a></h1><p>鉴于半期考试临近，本文档的后半部分将关注于一些考点分析和备考技巧。</p><section><h2>推荐方法<a href="#推荐方法"><span>#</span></a></h2><p>关于半期考试，考试模式由原来的选择题笔试改为了现在的机考多题型（可能）。由于机考涉及手写代码，学习方式可能与之前有所不同。根据助教的描述，考察内容多以基础题为主，所以复习重心仍然是放在对基础知识的掌握和理解中。</p><p>笔者常用的复习方法是一套流程。</p><section><h3>Step 1 整理资料<a href="#step-1-整理资料"><span>#</span></a></h3><p>在开始复习之前，你需要收集这些资料：</p><ul>
+<li>所有与考试内容相关的课件</li>
+<li>所有中期考试相关的笔记（手写或电子）</li>
+<li>所有通过助教、Moodle 或官网拿到的官方历年考试卷或相关复习资料</li>
+</ul><p>将这些资料保存妥善。</p></section><section><h3>Step 2 初步复习<a href="#step-2-初步复习"><span>#</span></a></h3><p>从课件开始，逐页复习 PPT，同时将 AI 放在旁边，及时整理疑难点——通常情况下，AI 会很好的回答你的疑问。</p><p>将这个流程进行至完整复习所有课件，对知识点有了明确的概念与理解（虽然会有遗忘）。</p><p>在这个过程中，最值得系统整理的是各类知识点和易错点。比如，不同数据类型的存储大小、取值范围及相关特性（需要注意，具体大小可能受到平台、编译器和数据模型的影响，这也是去年考试中的一个易错点）；各类函数的用法与格式；转义字符的使用（例如，在 C 语言字符串中，使用 <code>\\</code> 表示一个反斜杠）；同义表达、变量与函数的声明位置，以及其他容易混淆的细节。</p><p>这些内容尤其容易出现在选择题和填空题中，建议整理成表格，便于对比和记忆。对于不熟悉的知识点，可以借助 AI 进行解释，也可以从往年试题中总结常见考法。例如，浮点数运算中，<code>0.3 - 0.1</code> 的结果通常不等于精确的 <code>0.2</code>，就是一个值得注意的细节。需要注意的是，AI 给出的结论也应当结合课程资料或实际代码进行核实。</p><p>易错点非常容易考察在选择填空，所以做题必须慎之又慎。</p><p>重点关注部分英文术语，防止考试时候忘记含义，影响做题。</p></section><section><h3>Step 3 模拟试题<a href="#step-3-模拟试题"><span>#</span></a></h3><p>完整复习之后，使用前几年的模拟卷给自己安排几次 <code>全真模拟</code>。模拟测试后记录错题和模糊的记忆，将它们完整的记录下来，解析清楚。</p><p>考虑到考试涉及机考手写代码，务必 <code>上手写代码</code>！上手写代码！手写代码！</p><p>你永远不知道你在机考的时候会出哪些问题：键盘用不惯，IDE 不会用，编译写不出，码字太慢思绪打断，语法总忘记，编译跑不通，测试不会做，波浪号去不掉，顺序写不对，循环漏次数，边界欠考虑。</p><p>很多同学图省事，以为看懂了就会写。但是 <code>看懂了</code> 和 <code>写的出来</code> 是相隔很大的理解台阶的，一定要亲身实践去编写构思代码，理解算法，写对语法，跑通编译与结果。</p><p>在对知识和题目有了系统认知和把握后可以尝试更深度、高阶的训练。</p></section><section><h3>Step 4 提升训练<a href="#step-4-提升训练"><span>#</span></a></h3><p>这个时候通常有两种选择：</p><ol>
+<li>回头复习课件笔记与坑点，重做错题，加深理解；</li>
+<li>使用 AI 辅助提升复习难度。</li>
+</ol><p>如果选择一，则要重点关注课后习题，针对地提升代码能力。</p><blockquote><p>在 IP 阶段，代码能力的提升主要来自：</p><ol>
+<li>自行完成对一道算法题的需求分析、算法设计、代码编写、错误处理、编译验证的循环，直到一道题目被 AC（算法强度不高，基本都是模拟题，不需要考虑更省时间或空间的算法）。</li>
+<li>对关键语法或复杂结构的熟练（码字流畅度）。</li>
+<li>一些代码规则的掌握（比如注释、变量名等 <code>clang.tidy</code> 规则）。</li>
+</ol></blockquote><p>如果选择二，则要借助 AI 为你设计多套模拟题，题目可以从洛谷选入门或课本习题改编。然后同样以相同的要求完成，同时记忆易错点。</p></section></section><section><h2>关于 LAB<a href="#关于-lab"><span>#</span></a></h2><p>首先，今年的 LAB 进行了较大的改革：手册由原来的一体化形式调整为题目与指导（Learning Guide）分开的形式。相较于往年，今年的题目更加情景化、工程化，但整体难度变化不大。同时，得益于这种分体式设计，题目难度呈阶梯式递增，对零基础的同学来说更加友好。</p><p>建议大家在正式完成 LAB 题目之前，先完整阅读并完成对应的 Learning Guide。它能够帮助大家提前熟悉相关知识，为后续的题目练习打下基础，而且完成后还可以获得额外的 bonus。</p><p>关于 LAB，笔者能够提供的经验相对有限。如果在完成过程中遇到困难，或者对某些知识点存在疑问，可以多向 AI 求助。但需要注意的是，AI 的回答不能成为模糊带过问题的理由。对于不理解的概念、语法和代码逻辑，一定要弄清楚并掌握，而不是仅仅得到一个能够运行的答案。</p><p>C 语言的基础语法看似简单，但在实际编程中，往往需要组合多种语法结构、控制流程和编程技巧，才能完成相对复杂的任务。对于这些写法，大家应当在理解其原理和作用的基础上使用，避免机械地复制代码。</p><p>毕竟，代码是你自己写出来的，助教询问你的实现思路和相关细节也是很正常的事情。<strong>能够独立解释自己写出的代码，才算真正掌握了它。</strong></p></section><section><h2>结语<a href="#结语"><span>#</span></a></h2><p>回头看，学习 IP 最重要的，是逐渐完成几个转变：从听到英文术语时感到陌生，到能够理解老师的讲解；从看懂课件里的代码，到能够独立写出程序；从遇到报错就不知道怎么办，到能够检查、修改并验证自己的思路。</p><p>本文介绍的笔记工具、AI 用法和复习流程，都是帮助我完成这些转变的方法。大家不必照搬，也不必一开始就搭建一套复杂的学习系统。先找到自己当前最吃力的环节，再选择合适的方法解决它。</p><p>如果暂时不知道从哪里开始，不妨从下一节课做一个小尝试：课前浏览课件，课上记下没有听懂的地方，课后独立写出一个相关的小程序。遇到困难时，可以向老师、助教、同学或 AI 求助，再回过头来检查自己是否真正理解。</p><p>希望这篇分享能让大家在面对英文课堂和编程练习时，多一点方向，也少一点慌张。等到你能够不看答案写出程序，解释它为什么这样运行，并在出错时找到修改的方向，进步就已经发生了。</p></section></section>]]></content>
+    </entry>
+    <entry>
+      <id>https://moemeng.top/posts/%E8%BF%91%E5%86%B5%E6%A6%82%E8%A6%81/</id>
+      <title type="text">近况概要</title>
+      <published>2026-05-24T00:00:00.000Z</published>
+      <updated>2026-05-24T00:00:00.000Z</updated>
+      <author><name>面包板上的帕秋莉</name></author>
+      <link rel="alternate" href="https://moemeng.top/posts/%E8%BF%91%E5%86%B5%E6%A6%82%E8%A6%81/"/>
+      <summary type="text"></summary>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    <entry>
+      <id>https://moemeng.top/posts/second/</id>
+      <title type="text">浅谈建站经历</title>
+      <published>2025-12-04T00:00:00.000Z</published>
+      <updated>2025-12-04T00:00:00.000Z</updated>
+      <author><name>面包板上的帕秋莉</name></author>
+      <link rel="alternate" href="https://moemeng.top/posts/second/"/>
+      <summary type="text"></summary>
+      <content type="html"><![CDATA[<section><h1>前言<a href="#前言"><span>#</span></a></h1><p>这篇文章主要是介绍我是如何建站的</p><p>本站源代码托管在<code>GitHub</code>，生成的静态内容放在了另一个仓库。域名是在<code>NameSilo</code>购入并续费的，托管在<code>Cloudflare</code>。使用的评论系统是<code>Waline</code>，数据库部署在<code>leancloud国际版</code>，云函数部署在<code>Netlify</code>。</p><p>为什么这样部署呢？因为省钱！</p><p>算一笔账：</p>
+
+<table><thead><tr><th>Cloudflare Zero Trust Free Plan</th><th>0</th></tr></thead><tbody><tr><td>Github</td><td>0</td></tr><tr><td>Leancloud developing plan</td><td>0</td></tr><tr><td>Netlify Personal</td><td>0</td></tr><tr><td>Namesilo Domain</td><td>8$ per year</td></tr></tbody></table><blockquote><p>如果使用类似is-a-dev的二级域名或者直接使用GitHub Pages的二级域名，直接免费</p><p>考虑到这些域名在国内的解析成功率不高，建议自购域名续费</p><p>注意，国内平台这些功能多数要备案，想避免麻烦请使用国际平台</p><p>域名注册坑比较多，尤其是续费，请务必关注</p></blockquote></section>
+<section><h1>技术栈<a href="#技术栈"><span>#</span></a></h1><ul>
+<li>Node.js</li>
+<li>Javascript</li>
+<li>Html</li>
+<li>Cloud Computing</li>
+<li>Git</li>
+<li>AI Coding</li>
+</ul></section>
+<section><h1>操作思路<a href="#操作思路"><span>#</span></a></h1><blockquote><p>并非喂饭教程</p><p>如果你对以上云平台了解不多，不建议尝试<strong>使用静态页面部署博客</strong>。你可以尝试租用云服务器使用WordPress建站，相对简单</p></blockquote><section><h2>初始化<a href="#初始化"><span>#</span></a></h2><p>目前有多种静态博客平台，比如<code>Hexo</code>、<code>Hugo</code>、<code>Astro</code>等，本站是通过<code>Astro</code>建立的，故以此为例</p><p><strong>注意，我在建站过程中使用了AI工具，如果你在复现时遇到问题，可以尝试使用AI解答你的困惑</strong></p><section><h3>Git<a href="#git"><span>#</span></a></h3><p>我使用的模板是<code>Fuwari</code>（<a href="https://github.com/saicaca/fuwari" target="_blank">saicaca/fuwari: ✨A static blog template built with Astro.</a>）</p><p>然而，这个模板暂时没有接入<code>Waline</code>评论系统，但是在Pull request区有开发者提供了接入，故我拉取了这个暂时还未并入主分支的仓库<a href="https://github.com/cimorn/WebFuwari/tree/main" target="_blank">cimorn/WebFuwari: ✨A static blog template built with Astro.</a></p><p>找一个合适的空文件夹</p><div><figure><figcaption></figcaption><pre><code><div><div><div>1</div></div><div><span>git clone https://github.com/cimorn/WebFuwari.git</span></div></div></code></pre><div><div></div><div></div></div></figure></div><p>具体其他部署可参考项目主页<a href="https://github.com/saicaca/fuwari" target="_blank">saicaca/fuwari: ✨A static blog template built with Astro.</a></p><p>提示：需要安装npm包管理工具和pnpm工具</p></section></section><section><h2>个性化<a href="#个性化"><span>#</span></a></h2><p>个性化参考文档或者问AI</p><section><h4>踩坑补充<a href="#踩坑补充"><span>#</span></a></h4><ul>
+<li>字体和图片要么自托管要么图床，做好路径规划，不然容易丢图</li>
+<li>标签栏的动态变化通常需要js脚本</li>
+</ul></section></section><section><h2>部署<a href="#部署"><span>#</span></a></h2><p>这是本篇博客重点所在</p><section><h3>GitHub Pages 部署<a href="#github-pages-部署"><span>#</span></a></h3><p>在开始之前，需要先确保你有一个 GitHub 账户，并且能够创建仓库。你可以通过以下步骤将博客部署到 GitHub Pages：</p><ol>
+<li>
+<p><strong>创建仓库</strong>
+在 GitHub 上创建一个新的仓库，命名为你想要的网站名称。比如，如果你的域名是 <code>example.com</code>，那么可以创建一个名为 <code>example.github.io</code> 的仓库。</p>
+</li>
+<li>
+<p><strong>上传代码</strong>
+将 <code>Astro</code> 项目的代码推送到 GitHub 仓库中。可以使用以下命令将代码推送到 GitHub：</p>
+<div><figure><figcaption><span></span><span>Terminal window</span></figcaption><pre><code><div><div><div>1</div></div><div><span>git</span><span> </span><span>init</span></div></div><div><div><div>2</div></div><div><span>git</span><span> </span><span>remote</span><span> </span><span>add</span><span> </span><span>origin</span><span> </span><span>https://github.com/yourusername/example.github.io.git</span></div></div><div><div><div>3</div></div><div><span>git</span><span> </span><span>add</span><span> </span><span>.</span></div></div><div><div><div>4</div></div><div><span>git</span><span> </span><span>commit</span><span> </span><span>-m</span><span> </span><span>"Initial commit"</span></div></div><div><div><div>5</div></div><div><span>git</span><span> </span><span>push</span><span> </span><span>-u</span><span> </span><span>origin</span><span> </span><span>master</span></div></div></code></pre><div><div></div><div></div></div></figure></div>
+</li>
+<li>
+<p><strong>启用 GitHub Pages</strong>
+在 GitHub 仓库页面，进入 “Settings”（设置）&gt; “Pages” 部分，选择 <code>main</code> 分支并点击 “Save” 来启用 GitHub Pages。之后，GitHub 会自动为你生成一个静态网站。</p>
+</li>
+</ol></section><section><h3>Cloudflare 配置<a href="#cloudflare-配置"><span>#</span></a></h3><ol>
+<li>
+<p><strong>添加 DNS 记录</strong>
+在 <code>NameSilo</code> 购买域名后，将其添加到 <code>Cloudflare</code> 中进行 DNS 管理。进入 Cloudflare 仪表盘，选择 “Add site” 并添加你的域名。</p>
+<p>需要先在<code>NameSilo</code>解开域名锁，需要填写个人信息（使用地址生成器，避免信息泄露），将解析记录转到Cloudflare</p>
+</li>
+<li>
+<p><strong>配置 Pages</strong>
+在Workers和Pages选项卡下新建项目，注意要选择下方小字建设Pages</p>
+<p>注意填写的仓库地址必须是生成的静态界面，通常文件较源代码少，通常是<code>pnpm run build</code>的产物</p>
+<p>在自定义域名</p>
+</li>
+<li>
+<p><strong>HTTPS 配置</strong>
+Cloudflare 会自动为你的域名启用 SSL/TLS 加密服务，确保你的站点支持 HTTPS。</p>
+</li>
+</ol></section><section><h3>Waline 评论系统接入<a href="#waline-评论系统接入"><span>#</span></a></h3><p>由于选择了 <code>Waline</code> 作为评论系统，可以按照以下步骤进行配置：</p><p>参考官方文档<a href="https://waline.js.org/guide/get-started/" target="_blank">快速上手 | Waline</a>（Vercel也可，但在国内速度不如Netlify）</p><p>使用CDN加载评论组件<a href="https://waline.js.org/cookbook/import/cdn.html" target="_blank">通过 CDN 导入 Waline | Waline</a></p></section><section><h3>接入评论到界面<a href="#接入评论到界面"><span>#</span></a></h3><p>使用AI提示，在ts主配置文档填写serverURL即可</p></section></section></section>
+<section><h1>总结<a href="#总结"><span>#</span></a></h1><p>总之就是这么个流程，遇到问题可以给我留言。</p><p>可以直接在下面留言，务必留邮箱，但我不常看</p><p>或者通过GitHub找到我发邮件。</p></section>]]></content>
+    </entry>
+    <entry>
+      <id>https://moemeng.top/posts/%E5%88%9D%E8%A7%81%E5%90%84%E4%BD%8D%E8%BF%99%E9%87%8C%E6%98%AFmoemeng/</id>
+      <title type="text">初见各位，这里是Moemeng</title>
+      <published>2025-11-26T08:27:50.000Z</published>
+      <updated>2025-11-26T08:27:50.000Z</updated>
+      <author><name>面包板上的帕秋莉</name></author>
+      <link rel="alternate" href="https://moemeng.top/posts/%E5%88%9D%E8%A7%81%E5%90%84%E4%BD%8D%E8%BF%99%E9%87%8C%E6%98%AFmoemeng/"/>
+      <summary type="text"></summary>
+      <content type="html"><![CDATA[<section><h1>序言<a href="#序言"><span>#</span></a></h1><p>欢迎你，我的朋友😄</p><p>这是一个基于<strong>Astro</strong>开发的静态博客网站，目前托管在GitHub，由Cloudflare进行CDN加速，如你所见，应该会有不错的加载速度（大概？）</p></section>
+<section><h1>初心<a href="#初心"><span>#</span></a></h1><p>建网站是我自初中以来就有的想法，那个时候的我了解到了WordPress，就迫不及待地在电脑上部署，然后用了一个非常有特色的域名。</p><p>我兴高采烈地走出门，试图访问我的网站，结果发现无法解析DNS。后来我了解到内网和外网有区别，再加上日益繁重的学业，<strong>所以我放弃了很多</strong>，不只是这个想法，还有很多很多藏在心底的点子，还有愿望和憧憬。（我的那个很有特色的域名也早已被人注册，只恨财力不足😅）</p><p>所以，这算是一种弥补吧。</p><p>来到大学后，我常常回顾过去，想起那么多我的愿望，便有意识地去尝试。</p><p>然而，有的过期，有的变质，有的即便明知是苦涩，却不得不咽下去。</p><p>扯远了。</p><p>建立这个博客网站，一半是兴趣，一半是分享一些技术经验和生活经历，所以不会经常更新。</p><p>而且这就是互联网一个不为人知的小角落，所以不会有人介意的。</p><p>由于新站刚建立，功能简陋，后期会慢慢填上像评论等动态组件，敬请期待。</p></section>
+<section><h1>计划<a href="#计划"><span>#</span></a></h1><p>由于新站刚建立，功能简陋，后期会慢慢填上像评论等动态组件，敬请期待。（表演欲极强）</p><p>博主是二次元呢，所以会分享一些二次元界的评论，不过多数是番剧。</p><p>评论系统我就设计为面向大众开放，就不使用基于GitHub Issue的免费方案，不然评论还要账号，太差劲了。</p><p>预期的前几篇文章估计会是谈谈我的建站经历、踩坑还有Vibe Coding的使用体验、以及近半年多次互联网大崩溃的反思吧。</p></section>
+<section><h1>疑问<a href="#疑问"><span>#</span></a></h1><p>有人会说</p><p>哎呀哎呀，为什么不发动态、不写微博、不拍短视频、不写公众号，建网站还是太吃技术力了。</p><p>首先，我不吃流量，不好这一口。其次，我写出来纯粹自娱自乐。为了追求极简，我选择了非常朴素的主题。</p><p>没人看我也认了。</p></section>
+<section><h1>结语<a href="#结语"><span>#</span></a></h1><p>码字太累了，没有结语。</p><p>附一个傅里叶级数公式，鞭一下通信特色课的尸。</p><span><span><span>f(t)=a0+∑n=1∞(ancos⁡(2πntT)+bnsin⁡(2πntT)) f(t) = a_0 + \sum_{n=1}^{\infty} \left( a_n \cos\left(\frac{2\pi n t}{T}\right) + b_n \sin\left(\frac{2\pi n t}{T}\right) \right) </span><span><span><span></span><span>f</span><span>(</span><span>t</span><span>)</span><span></span><span>=</span><span></span></span><span><span></span><span><span>a</span><span><span><span><span><span><span></span><span><span>0</span></span></span></span><span>​</span></span><span><span><span></span></span></span></span></span></span><span></span><span>+</span><span></span></span><span><span></span><span><span><span><span><span><span></span><span><span><span>n</span><span>=</span><span>1</span></span></span></span><span><span></span><span><span>∑</span></span></span><span><span></span><span><span><span>∞</span></span></span></span></span><span>​</span></span><span><span><span></span></span></span></span></span><span></span><span><span><span>(</span></span><span><span>a</span><span><span><span><span><span><span></span><span><span>n</span></span></span></span><span>​</span></span><span><span><span></span></span></span></span></span></span><span></span><span>cos</span><span></span><span><span><span>(</span></span><span><span></span><span><span><span><span><span><span></span><span><span>T</span></span></span><span><span></span><span></span></span><span><span></span><span><span>2</span><span>π</span><span>n</span><span>t</span></span></span></span><span>​</span></span><span><span><span></span></span></span></span></span><span></span></span><span><span>)</span></span></span><span></span><span>+</span><span></span><span><span>b</span><span><span><span><span><span><span></span><span><span>n</span></span></span></span><span>​</span></span><span><span><span></span></span></span></span></span></span><span></span><span>sin</span><span></span><span><span><span>(</span></span><span><span></span><span><span><span><span><span><span></span><span><span>T</span></span></span><span><span></span><span></span></span><span><span></span><span><span>2</span><span>π</span><span>n</span><span>t</span></span></span></span><span>​</span></span><span><span><span></span></span></span></span></span><span></span></span><span><span>)</span></span></span><span><span>)</span></span></span></span></span></span></span><p>附一个冒泡排序，希望你没有忘记</p><div><figure><figcaption></figcaption><pre><code><div><div><div>1</div></div><div><span>/* 冒泡排序 */</span></div></div><div><div><div>2</div></div><div><span>void</span><span> </span><span>bubbleSort</span><span>(</span><span>int</span><span> </span><span>nums</span><span>[]</span><span>, </span><span>int</span><span> </span><span>size</span><span>) {</span></div></div><div><div><div>3</div></div><div><span>    </span><span>// 外循环：未排序区间为 [0, i]</span></div></div><div><div><div>4</div></div><div><span>    </span><span>for</span><span> (</span><span>int</span><span> i </span><span>=</span><span> size </span><span>-</span><span> </span><span>1</span><span>; i </span><span>&gt;</span><span> </span><span>0</span><span>; i</span><span>--</span><span>) {</span></div></div><div><div><div>5</div></div><div><span>        </span><span>// 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端</span></div></div><div><div><div>6</div></div><div><span>        </span><span>for</span><span> (</span><span>int</span><span> j </span><span>=</span><span> </span><span>0</span><span>; j </span><span>&lt;</span><span> i; j</span><span>++</span><span>) {</span></div></div><div><div><div>7</div></div><div><span>            </span><span>if</span><span> (</span><span>nums</span><span>[j] </span><span>&gt;</span><span> </span><span>nums</span><span>[j </span><span>+</span><span> </span><span>1</span><span>]) {</span></div></div><div><div><div>8</div></div><div><span>                </span><span>int</span><span> temp </span><span>=</span><span> </span><span>nums</span><span>[j];</span></div></div><div><div><div>9</div></div><div><span>                </span><span>nums</span><span>[j] </span><span>=</span><span> </span><span>nums</span><span>[j </span><span>+</span><span> </span><span>1</span><span>];</span></div></div><div><div><div>10</div></div><div><span>                </span><span>nums</span><span>[j </span><span>+</span><span> </span><span>1</span><span>] </span><span>=</span><span> temp;</span></div></div><div><div><div>11</div></div><div><span><span>            </span></span><span>}</span></div></div><div><div><div>12</div></div><div><span><span>        </span></span><span>}</span></div></div><div><div><div>13</div></div><div><span><span>    </span></span><span>}</span></div></div><div><div><div>14</div></div><div><span>}</span></div></div></code></pre><div><div></div><div></div></div></figure></div><p></p><figure><img alt="example" loading="lazy" width="2048" height="1024" src="/_astro/cover.CgGywNHJ_9FUtX.webp" /><figcaption>example</figcaption></figure><p></p></section>]]></content>
+    </entry>
+</feed>

@@ -1,0 +1,13 @@
+﻿# 面包板上的帕秋莉
+> 面包板上的电子手账记录者，记录嵌入式开发与日常。
+
+## Key Pages
+- [主页](https://moemeng.top/)
+- [归档](https://moemeng.top/archive/)
+- [关于我](https://moemeng.top/about/)
+
+## Recent Posts
+- [编程导论学习经验分享：从课堂跟课到 LAB 与考前复习](https://moemeng.top/posts/introductory-programming-study-guide/): 面向初次接触编程与英语授课的同学，分享编程导论的课堂跟课、Obsidian 笔记、AI 辅助学习、LAB 练习和考前复习方法。
+- [近况概要](https://moemeng.top/posts/%E8%BF%91%E5%86%B5%E6%A6%82%E8%A6%81/)
+- [浅谈建站经历](https://moemeng.top/posts/second/)
+- [初见各位，这里是Moemeng](https://moemeng.top/posts/%E5%88%9D%E8%A7%81%E5%90%84%E4%BD%8D%E8%BF%99%E9%87%8C%E6%98%AFmoemeng/)

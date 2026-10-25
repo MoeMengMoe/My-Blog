@@ -1,4 +1,7 @@
 User-agent: *
 Disallow: /_astro/
+Disallow: /archive/?tag=
+Disallow: /archive/?category=
+Disallow: /archive/?uncategorized=
 
 Sitemap: https://moemeng.top/sitemap-index.xml
